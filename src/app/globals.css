@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Set the default dark theme styles */
+:root {
+  --foreground-rgb: 255, 255, 255; /* Light text color */
+  --background-start-rgb: 0, 0, 0; /* Dark background color */
+  --background-end-rgb: 0, 0, 0; /* Dark background color */
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%; /* Dark background */
+    --foreground: 0 0% 98%; /* Light foreground */
+    --card: 240 10% 3.9%; /* Dark card background */
+    --card-foreground: 0 0% 98%; /* Light card text */
+    --popover: 240 10% 3.9%; /* Dark popover background */
+    --popover-foreground: 0 0% 98%; /* Light popover text */
+    --primary: 0 0% 98%; /* Light primary color */
+    --primary-foreground: 240 5.9% 10%; /* Dark primary text */
+    --secondary: 240 3.7% 15.9%; /* Dark secondary color */
+    --secondary-foreground: 0 0% 98%; /* Light secondary text */
+    --muted: 240 3.7% 15.9%; /* Dark muted color */
+    --muted-foreground: 240 5% 64.9%; /* Light muted text */
+    --accent: 240 3.7% 15.9%; /* Dark accent color */
+    --accent-foreground: 0 0% 98%; /* Light accent text */
+    --destructive: 0 62.8% 30.6%; /* Dark destructive color */
+    --destructive-foreground: 0 0% 98%; /* Light destructive text */
+    --border: 240 3.7% 15.9%; /* Dark border color */
+    --input: 240 3.7% 15.9%; /* Dark input background */
+    --ring: 240 4.9% 83.9%; /* Dark ring color */
+    --chart-1: 220 70% 50%; /* Chart color */
+    --chart-2: 160 60% 45%; /* Chart color */
+    --chart-3: 30 80% 55%; /* Chart color */
+    --chart-4: 280 65% 60%; /* Chart color */
+    --chart-5: 340 75% 55%; /* Chart color */
+    --radius: 0.5rem; /* Default border radius */
+    --sidebar-background: 240 5.9% 10%; /* Dark sidebar background */
+    --sidebar-foreground: 240 4.8% 95.9%; /* Light sidebar text */
+    --sidebar-primary: 224.3 76.3% 48%; /* Dark sidebar primary color */
+    --sidebar-primary-foreground: 0 0% 100%; /* Light sidebar primary text */
+    --sidebar-accent: 240 3.7% 15.9%; /* Dark sidebar accent color */
+    --sidebar-accent-foreground: 240 4.8% 95.9%; /* Light sidebar accent text */
+    --sidebar-border: 240 3.7% 15.9%; /* Dark sidebar border color */
+    --sidebar-ring: 217.2 91.2% 59.8%; /* Dark sidebar ring color */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border; /* Apply border color */
+  }
+  body {
+    @apply bg-background text-foreground; /* Set body background and text color */
+  }
+}
+
+.blue-span {
+  position: relative;
+  display: inline-block; /* Ensure the span can contain the pseudo-element */
+}
+
+.blue-span::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2.2px;
+  background-color: #fc2f70; /* Underline color */
+  transform-origin: bottom right;
+  transform: scaleX(0);
+  transition: transform 0.5s ease;
+}
+
+.blue-span {
+  position: relative;
+  display: inline-block; /* Ensure the span can contain the pseudo-element */
+}
+
+.blue-span::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2.2px;
+  background-color: #fc2f70;
+  transform-origin: bottom right;
+  transform: scaleX(0);
+  transition: transform 0.5s ease;
+}
+
+/* Apply hover effect on the parent SidebarMenuItem */
+.SidebarMenuItem:hover .blue-span::before {
+  transform-origin: bottom left;
+  transform: scaleX(1);
+}
+button {
+  z-index: 1;
+  position: relative;
+  font-size: inherit;
+  font-family: inherit;
+  color: white;
+  padding: 0.5em 1em;
+  outline: none;
+  border: none;
+  background-color: hsl(236, 32%, 26%);
+  overflow: hidden;
+  transition: color 0.4s ease-in-out;
+}
+
+button::before {
+  content: '';
+  z-index: -1;
+  position: absolute;
+  bottom: 100%;
+  left: 100%;
+  width: 1.2em;
+  height: 1em;
+  border-radius: 50%;
+  background-color: #fc2f70;
+  transform-origin: center;
+  transform: translate3d(-50%, 50%, 0) scale3d(0, 0, 0);
+  transition: transform 0.35s ease-in-out;
+}
+
+button:hover {
+  cursor: pointer;
+  color: #161616;
+}
+
+button:hover::before {
+  transform: translate3d(-50%, 50%, 0) scale3d(15, 15, 15);
+}
