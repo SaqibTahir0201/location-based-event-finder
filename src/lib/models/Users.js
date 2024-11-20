@@ -2,16 +2,17 @@ import mongoose from "mongoose";
 const { Schema } = mongoose;
 
 const userSchema = new Schema({
-  fullname: string,
-  email: string,
-  password: string,
+  fullname: String, // Use `String` instead of `string`
+  email: String, // Use `String` instead of `string`
+  password: String, // Use `String` instead of `string`
   location: {
     lat: Number,
     long: Number,
   },
-  profileImg: string,
-  address: string,
-  bio: string,
+  profileImg: String, // Use `String` instead of `string`
+  address: String, // Use `String` instead of `string`
+  bio: String, // Use `String` instead of `string`
 });
 
-export const userModal = mongoose.model("Users", userSchema)
+export const userModal =
+  mongoose.models.Users || mongoose.model("Users", userSchema);

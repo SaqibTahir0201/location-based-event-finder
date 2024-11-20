@@ -2,17 +2,17 @@ import mongoose from "mongoose";
 const { Schema } = mongoose;
 
 const eventSchema = new Schema({
-  title: string,
-  description: string,
-  startTime: string,
-  endTime: string,
-  startDate: string,
-  endDate: string,
+  title: String,
+  description: String,
+  startTime: String,
+  endTime: String,
+  startDate: String,
+  endDate: String,
   location: {
     lat: Number,
     long: Number,
   },
-  address: string,
+  address: String,
   createdBy: { type: mongoose.Types.ObjectId, ref: "Users" },
   going: [{type: mongoose.Types.ObjectId, ref: "Users"}],
 });
